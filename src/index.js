@@ -7,9 +7,9 @@ import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/global.css'
 
-import {NavBar} from "./App.jsx"
+import App from "./App.jsx"
 
-ReactDOM.render(<NavBar />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // var buttonElement = <button class="btn btn-danger">Click me</button>;
 // ReactDOM.render(buttonElement, document.getElementById("root"));
