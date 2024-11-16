@@ -46,7 +46,7 @@ export class MainContent extends Component {
                 <tbody>
                     {this.state.users.map((user) => {
                         return (
-                            <tr>
+                            <tr key={user.id}>
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.state}</td>
