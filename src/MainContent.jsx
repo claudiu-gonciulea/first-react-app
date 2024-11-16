@@ -6,10 +6,10 @@ export class MainContent extends Component {
     // it is a javascript object. You can use nested objects inside the state
     state = { appTitle: "Users", usersCount: 4,
                 users: [
-                    {id: 1, name: "Jane Doe", state: "New York"},
-                    {id: 2, name: "John Doe", state: "New York"},
-                    {id: 3, name: "Billy", state: "Chicago"},
-                    {id: 4, name: "Sam", state: "Washington"},
+                    {id: 1, name: "Jane Doe", state: "New York", address: {streetName:"Broadway", streetNumber: 21}},
+                    {id: 2, name: "John Doe", state: "New York", address: {streetName:"Broadway", streetNumber: 21}},
+                    {id: 3, name: "Billy", state: "Chicago", address: {streetName:"Michigan Avenue", streetNumber: "4A"}},
+                    {id: 4, name: "Sam", state: "Washington", address: {streetName:"Pennsylvania Avenue", streetNumber: 8}},
                 ],        
                 appTextNotifications: "Notifications", notificationNumbers: 12};
 
@@ -39,6 +39,7 @@ export class MainContent extends Component {
                         <th>#</th>
                         <th>User Name</th>
                         <th>State where user lives</th>
+                        <th>Street: number, name</th>
                     </tr>
                 </thead>
 
@@ -50,6 +51,7 @@ export class MainContent extends Component {
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.state}</td>
+                                <td>{user.address.streetNumber}, {user.address.streetName}</td>
                             </tr>
                         );
                     })}
