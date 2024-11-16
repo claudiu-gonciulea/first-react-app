@@ -4,13 +4,18 @@ export class MainContent extends Component {
 
     // this property contains the dynamic content that you want to render inside your component
     // it is a javascript object. You can use nested objects inside the state
-    state = { appTitle: "Customers", appTextNotifications: "Notifications", notificationNumbers: 12};
+    state = { appTitle: "Users", usersCount: 4,
+                users: [
+                    {id: 1, name: "Jane Doe", state: "New York"},
+                    {id: 2, name: "John Doe", state: "New York"},
+                    {id: 3, name: "Billy", state: "Chicago"},
+                    {id: 4, name: "Sam", state: "Washington"},
+                ],        
+                appTextNotifications: "Notifications", notificationNumbers: 12};
 
     render() {
 
         return <div>
-            
-            <h4 className="border-bottom m-1 p-1">{this.state.appTitle}</h4>
 
             <button type="button" className="btn btn-primary position-relative m-3">
                 {this.state.appTextNotifications} 
@@ -24,6 +29,33 @@ export class MainContent extends Component {
             <button className="btn btn-info m-2" onClick = {this.onRefreshClick}>
                 Refresh Notification's badge
             </button>
+
+
+            <h4 className="border-bottom m-1 p-1">{this.state.appTitle}</h4>
+
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User Name</th>
+                        <th>State where user lives</th>
+                    </tr>
+                </thead>
+
+                
+                <tbody>
+                    {this.state.users.map((user) => {
+                        return (
+                            <tr>
+                                <td>{user.id}</td>
+                                <td>{user.name}</td>
+                                <td>{user.state}</td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+
         </div>;
     }
 
